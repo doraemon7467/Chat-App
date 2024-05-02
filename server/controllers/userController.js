@@ -1,6 +1,6 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
 
 module.exports.login = async (req, res, next) => {
   try {
@@ -32,6 +32,7 @@ module.exports.register = async (req, res, next) => {
       email,
       username,
       password: hashedPassword,
+      status: true,
     });
     delete user.password;
     return res.json({ status: true, user });
@@ -53,7 +54,26 @@ module.exports.getAllUsers = async (req, res, next) => {
   }
 };
 
+module.exports.updateStatus = async (req, res, next) => {
+  try{
+    const { id } = req.params;
+    const user = await User.find({_id : id});
+    console.log(user);
+        // Find the user by _id and update the status field to its opposite value
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: id },
+          { $set: { status: !user[0].status } }, // Toggle the status field
+          { new: true } // Return the updated document
+      );
 
+      // Log the updated user
+      console.log('User status updated:', updatedUser);
+    return res.status(200).json({status: true});
+  }
+  catch(err){
+    next(err);
+  }
+};
 
 module.exports.logOut = (req, res, next) => {
   try {

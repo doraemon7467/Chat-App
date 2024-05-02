@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     min: 8,
   },
+  status: {
+    type: Boolean,
+    deafult: true,
+  }
 });
 
 module.exports = mongoose.model("Users", userSchema);

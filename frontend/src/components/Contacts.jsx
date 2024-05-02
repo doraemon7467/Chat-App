@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
+import { updateStatusRoute } from "../utils/APIRoutes";
 
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentSelected, setCurrentSelected] = useState(undefined);
-  const [isToggled, toggle] = useState(true)
+  const [isToggled, toggle] = useState(JSON.parse(
+    localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+  ).status);
 
-  const onClick = () => {
-    console.log('change-state')
-  }
-
-  const callback = () => {
+  const callback = async () => {
       toggle(!isToggled)
-      onClick()
+      const id = await JSON.parse(
+        localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
+      )._id;
+
+      console.log(id);
+      const data = await axios.patch(`${updateStatusRoute}/${id}`);
+      console.log(data.status)
   }
   useEffect(() => {
     (async() => {const data = await JSON.parse(
