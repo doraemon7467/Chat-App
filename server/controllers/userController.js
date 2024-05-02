@@ -58,7 +58,6 @@ module.exports.updateStatus = async (req, res, next) => {
   try{
     const { id } = req.params;
     const user = await User.find({_id : id});
-    console.log(user);
         // Find the user by _id and update the status field to its opposite value
         const updatedUser = await User.findOneAndUpdate(
           { _id: id },
@@ -67,7 +66,7 @@ module.exports.updateStatus = async (req, res, next) => {
       );
 
       // Log the updated user
-      console.log('User status updated:', updatedUser);
+      // console.log('User status updated:', updatedUser);
     return res.status(200).json({status: true});
   }
   catch(err){
