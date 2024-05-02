@@ -49,15 +49,14 @@ npm start
 # Routes
 
 - authRoutes:
-**router.post("/login", login);** : To make User Log-in.
-**router.get("/allusers/:id", getAllUsers);**: To get information about all the users 
-**router.post("/register", register);**: To register a new user.
-**router.get("/logout/:id", logOut);**: For a user to log-out from the applicaton.
+- **router.post("/login", login);** : To make User Log-in.
+- **router.get("/allusers/:id", getAllUsers);**: To get information about all the users 
+- **router.post("/register", register);**: To register a new user.
+- **router.get("/logout/:id", logOut);**: For a user to log-out from the applicaton.
 
 - messageRoutes
-
-**router.post("/addmsg/", addMessage);**: To add a message in the database
-**router.post("/getmsg/", getMessages);**: To get all the messages between two users from the database.
+- **router.post("/addmsg/", addMessage);**: To add a message in the database
+- **router.post("/getmsg/", getMessages);**: To get all the messages between two users from the database.
 
 # License📄
 ChatterBox is open source and available under the MIT License.
