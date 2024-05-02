@@ -89,7 +89,7 @@ export default function Register() {
       <FormContainer>
         <form action="" onSubmit={(event) => handleSubmit(event)}>
           <div className="brand">
-            <h1>Chat App</h1>
+            <h1>ChatterBox</h1>
           </div>
           <input
             type="text"

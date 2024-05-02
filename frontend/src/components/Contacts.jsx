@@ -35,7 +35,7 @@ export default function Contacts({ contacts, changeChat }) {
       {(
         <Container>
           <div className="brand">
-            <h3>Chat App</h3>
+            <h3>ChatterBox</h3>
           </div>
           <div className="contacts">
             {contacts.map((contact, index) => {
