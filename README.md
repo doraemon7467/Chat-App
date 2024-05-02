@@ -5,6 +5,10 @@ Welcome to ChatterBox⚡!
 
 
 
+https://github.com/doraemon7467/Chat-App/assets/106157824/40028bb6-93ef-43b2-ab2c-69578e1cb04a
+
+
+
 # Features💫
 - **Real-time Chatting**: ChatterBox leverages the power of 'socket.io' to enable real-time communication between users. Messages are instantly delivered to recipients, ensuring a smooth and responsive chatting experience.
 
